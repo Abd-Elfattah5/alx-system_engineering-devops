@@ -1,1 +1,1 @@
-this is a directory to document my shell I\O learning :)
+this is to document my learning about I\O shell
