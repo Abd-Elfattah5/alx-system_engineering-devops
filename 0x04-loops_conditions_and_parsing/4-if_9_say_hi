@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# printing best school 10 times and at the 9 times will add hi with until
+
+i="0"
+
+until [ $i -eq 10 ]
+do
+	echo "Best School"
+	if [ $i -eq 8 ]
+	then
+		echo "Hi"
+	fi
+	((i+=1))
+done
