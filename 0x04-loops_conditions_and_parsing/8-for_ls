@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# displaying all the file without numbering
+
+for i in *
+do
+	echo "$i" | cut -d '-' -f2
+done
