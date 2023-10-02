@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # print for infinit times and print specific message when reciving SIGTERM signal
 
-trap echo "I am invincible!!!" SIGTERM
+trap "echo I am invincible!!!" SIGTERM
 
 while true
 do
