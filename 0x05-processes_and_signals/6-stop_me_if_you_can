@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# killing the process using anothe method
+
+pkill -f ./4-to_infinity_and_beyond
