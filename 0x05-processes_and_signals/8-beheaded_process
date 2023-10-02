@@ -1,0 +1,4 @@
+#!/usr/bin/env bahs
+# killing the process
+
+kill -KILL "$(pgrep -f ./7-highlander)"
