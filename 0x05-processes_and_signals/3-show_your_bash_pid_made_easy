@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# show the bash id and name of the processes
+
+pgrep -l bash
