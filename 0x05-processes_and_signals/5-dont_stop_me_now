@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# stoping the previous corrupted program
+
+kill "$(pgrep -f ./4-to_infinity_and_beyond)"
