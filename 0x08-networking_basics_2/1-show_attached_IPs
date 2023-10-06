@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # getting the active sockets
 
-ifconfig | grep -oP 'inet \K\S+'
+ifconfig -a | grep inet | cut -d: -f2 | cut -d" " -f1
