@@ -1,1 +1,4 @@
+#!/usr/bin/env bash
+# getting the active sockets
+
 ifconfig | grep -oP 'inet \K\S+' | grep -v '127.0.0.1'

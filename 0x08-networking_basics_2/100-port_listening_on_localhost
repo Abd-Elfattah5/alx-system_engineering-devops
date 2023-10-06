@@ -1,1 +1,4 @@
+#!/usr/bin/env bash
+# opening a socket number 98 as user
+
 nc -l -p 98
