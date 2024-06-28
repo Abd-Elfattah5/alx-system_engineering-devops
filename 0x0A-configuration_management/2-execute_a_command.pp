@@ -1,4 +1,7 @@
 # using the exec resourece to kill a process
 
-exec { 'pkill killmenow':
+exec { 'killmenow':
+    command  => '/usr/bin/pkill killmenow',
+    provider => 'shell',
+    returns  => [0, 1],
 }
