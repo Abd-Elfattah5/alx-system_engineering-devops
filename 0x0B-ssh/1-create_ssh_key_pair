@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# creating a new ssh key
+ssh-keygen -f school -b 4096 -t RSA -N "betty"
