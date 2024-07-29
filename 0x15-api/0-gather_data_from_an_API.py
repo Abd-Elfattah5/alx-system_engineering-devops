@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ a module that uses the request library
 to fetch data using the JSONPlaceholder API"""
 import requests
