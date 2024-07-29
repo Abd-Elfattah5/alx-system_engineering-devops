@@ -19,8 +19,9 @@ if __name__ == "__main__":
 
     headers = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
 
-    data = [{"USER_ID": usr_info["id"], "USERNAME": usr_info["name"],
-            "TASK_COMPLETED_STATUS": task["completed"], "TASK_TITLE": task["title"]}
+    data = [{"USER_ID": str(usr_info["id"]), "USERNAME": str(usr_info["name"]),
+            "TASK_COMPLETED_STATUS": str(task["completed"]),
+             "TASK_TITLE": str(task["title"])}
             for task in tasks_info]
 
     file_name = "{}.csv".format(employee_id)
