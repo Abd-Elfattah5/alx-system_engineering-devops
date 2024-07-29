@@ -25,4 +25,5 @@ if __name__ == "__main__":
         writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
 
         for task in tasks_info:
-            writer.writerow([employee_id, usr, task["completed"], task["title"]])
+            writer.writerow([employee_id, usr,
+                             task["completed"], task["title"]])
