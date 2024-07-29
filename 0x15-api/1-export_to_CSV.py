@@ -16,11 +16,11 @@ if __name__ == "__main__":
 
     tasks_info = task_req.json()
     usr_info = usr_req.json()
-    
-    headers = ["id", "name", "completed", "title"]
 
-    data = [{"id": usr_info["id"], "name": usr_info["name"],
-            "completed": task["completed"], "title": task["title"]}
+    headers = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
+
+    data = [{"USER_ID": usr_info["id"], "USERNAME": usr_info["name"],
+            "TASK_COMPLETED_STATUS": task["completed"], "TASK_TITLE": task["title"]}
             for task in tasks_info]
 
     file_name = "{}.csv".format(employee_id)
