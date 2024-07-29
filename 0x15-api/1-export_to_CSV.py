@@ -1,29 +1,39 @@
 #!/usr/bin/python3
-""" a module that uses the request library
-to fetch data using the JSONPlaceholder API
-and put all the data inside a csv file
 """
+Script that, using this REST API, for a given employee ID, returns
+information about his/her TODO list progress
+and export data in the CSV format.
+"""
+
 import csv
+import json
 import requests
-import sys
+from sys import argv
 
 
 if __name__ == "__main__":
-    employee_id = sys.argv[1]
-    link = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
-    task_req = requests.get(link + "/todos")
-    usr_req = requests.get(link)
 
-    tasks_info = task_req.json()
-    usr = usr_req.json()["name"]
+    sessionReq = requests.Session()
 
-    headers = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
+    idEmp = argv[1]
+    idURL = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(idEmp)
+    nameURL = 'https://jsonplaceholder.typicode.com/users/{}'.format(idEmp)
 
-    file_name = "{}.csv".format(employee_id)
+    employee = sessionReq.get(idURL)
+    employeeName = sessionReq.get(nameURL)
 
-    with open(file_name, mode='w', newline='') as csvfile:
-        writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
+    json_req = employee.json()
+    usr = employeeName.json()['username']
 
-        for task in tasks_info:
-            writer.writerow([employee_id, usr,
-                             task["completed"], task["title"]])
+    totalTasks = 0
+
+    for done_tasks in json_req:
+        if done_tasks['completed']:
+            totalTasks += 1
+
+    fileCSV = idEmp + '.csv'
+
+    with open(fileCSV, "w", newline='') as csvfile:
+        write = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
+        for i in json_req:
+            write.writerow([idEmp, usr, i.get('completed'), i.get('title')])
